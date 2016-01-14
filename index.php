@@ -11,36 +11,63 @@ and open the template in the editor.
         <link media="all" href="css/style.css" rel="stylesheet" type="text/css"></link>
     </head>
     <body>
+        <?php
+                //Mostrar los avatares predefinidos
+                $directoryavatar="img/avatarespredefinidos"; //poner en el que vaya a estar
+                $diravatar = dir($directoryavatar);
+        ?>
         <div id="wrapper">
-            <div id="header">
+            <!-- <div id="header">
                 <div id="logo">  
                     <img src="img/logo_blanco_0.png"></img>
                 </div>
                 <div id="title">
                     ASIR project!
-                </div>
+                </div> -->
             </div>
             <div id="content">
                 <form action='index.php?accion=modavatar' method='post'>
-                <div id="modavatarimg">Foto
-                    <img src="img/logo_web.jpeg" width="150px" height="150px">
-                </div>
-                <div>
-                    <input type="file" name="imgavatar" accept="image/*">
-                </div>
-                <div>
-                    <input type="submit" name="modavasend" value="Aplicar" />
-                </div>
+                    <div id="modavatarimg" style="width: 200px; height: 200px; border: solid blue" >Foto
+                        <img src="img/logo_web.jpeg" width="150px" height="150px">
+                    </div>
+                    <div style="border: solid greenyellow">
+                        <input type="file" name="imgavatar" accept="image/*">
+                    </div>
+                    <div style="width: 400px; height: 400px; border: red solid">
+                        <?php
+                                echo '<table border=1>';
+                                echo '<tr>';
+                                $i=0;
+                            while (($archivo = $diravatar->read()) !== false)
+                                {
+                                    if ($i==4){
+                                        $i=0;
+                                        echo '</tr>';
+                                        echo '<tr>';
+                                    }
+                                    $i++;
+                                    echo '<td>';
+                                        if (eregi("jpg", $archivo) || eregi("png", $archivo)){
+                                            echo '<a href=$directoryavatar."/".$archivo><img src="'.$directoryavatar."/".$archivo.'"width="150px" height="150px"></a>'."\n";
+                                        }
+                                        echo '</td>';
+                                        echo '</tr>';
+                                        echo '</table>';
+                                }
+                                    $diravatar->close();
+                        ?>
+                    </div>
+                    <div>
+                        <input type="submit" name="modavasend" value="Aplicar" />
+                    </div>
                 </form>
-                <?php
-                echo "hola";
-                ?>
+                
             </div>
-            <div id="footer">
+            <!-- <div id="footer">
                 <div id="subtitle">  
                     <a href="http://www.ausiasmarch.net/asir"> CFGS Administración de Sistemas Informáticos y Redes </a>
                 </div>
-            </div>
+            </div> -->
         </div>
     </body>
 </html>
