@@ -40,19 +40,10 @@ and open the template in the editor.
                                 $i=0;
                             while (($archivo = $diravatar->read()) !== false)
                                 {
-                                    if ($i==4){
-                                        $i=0;
-                                        echo '</tr>';
-                                        echo '<tr>';
-                                    } 
-                                    $i++; //contador
-                                    echo '<td>';
+                                    
                                         if (eregi("jpg", $archivo) || eregi("png", $archivo)){
-                                            echo '<a href=$directoryavatar."/".$archivo><img src="'.$directoryavatar."/".$archivo.'"width="150px" height="150px"></a>'."\n";
+                                            echo '<a href=$directoryavatar."/".$archivo><img src="'.$directoryavatar."/".$archivo.'"width="100px" height="100px"></a>'."\n";
                                         }
-                                        echo '</td>';
-                                        echo '</tr>';
-                                        echo '</table>';
                                 }
                                     $diravatar->close();
                         ?>
