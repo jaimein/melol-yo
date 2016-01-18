@@ -35,17 +35,33 @@ and open the template in the editor.
                     </div>
                     <div style="width: 400px; height: 400px; border: red solid">
                         <?php
-                                echo '<table border=1>';
-                                echo '<tr>';
+                                //echo '<table border=1>';
+                                //echo '<tr>';
                                 $i=0;
                             while (($archivo = $diravatar->read()) !== false)
                                 {
                                     
                                         if (eregi("jpg", $archivo) || eregi("png", $archivo)){
-                                            echo '<a href=$directoryavatar."/".$archivo><img src="'.$directoryavatar."/".$archivo.'"width="100px" height="100px"></a>'."\n";
+                                            echo '<div id=centrado style="width:111px; border: purple solid"><img src="'.$directoryavatar."/".$archivo.'"width="100px" height="100px"><br/><input type=radio name=archivo />'."\n"."</div>";
                                         }
                                 }
                                     $diravatar->close();
+                                    
+                            #################################################################
+             //               $conexion = new mysqli("localhost", "root","ausias", "gestion"); 
+              //              if ($conexion->connect_errno) { 
+              //                  die( "Fallo al contenctar a MySQL: (" . $conexion->connect_errno . ") " . $conexion->connect_error); 
+               //             }
+               //             
+               //             $sql="UPDATE `coaches` SET `cAvatar` =3 WHERE `coachNick` = ?";
+               //                     
+               //             $stmt=$conexion->prepare($sql);
+                //            $stmt->bind_param("s", $usuario);
+                //            $stmt->execute();
+                 //           $stmt->store_result();
+                            
+
+
                         ?>
                     </div>
                     <div>
