@@ -48,7 +48,6 @@ and open the template in the editor.
                                     $diravatar->close();
                                     
                             
-
                         ?>
                     </div>
                     <div>
