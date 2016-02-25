@@ -27,28 +27,28 @@ and open the template in the editor.
                 $directoryavatar="img/avatares"; //poner en el que vaya a estar
                 $diravatar = dir($directoryavatar);
         ?>
-                <form action='sube.php' method='post' enctype="multipart/form-data">
+                <form action='sub.php' method='post' enctype="multipart/form-data">
                     <div id="modavatarimg" style="width: 200px; height: 200px; border: solid blue" >Foto
                         <img src="img/logo_web.jpeg" width="150px" height="150px">
                     </div>
                     <div style="border: solid greenyellow">
-                        <input type="file" name="fileavatar" accept="image/*">
+                        <input type="file" name="imagen" id="imagen">
                     </div>
                     <div style="width: 400px; height: 400px; border: red solid">
                         <?php
                                 
-                                $i=0;
-                            while (($archivo = $diravatar->read()) !== false)
-                                {
-                                    
-                                        if (eregi("jpg", $archivo) || eregi("png", $archivo)){
-                                            echo '<div id=centrado style="width:111px; border: purple solid"><img src="'.$directoryavatar."/".$archivo.'"width="100px" height="100px"><br/><input type=radio name=imgavatar value="'.$archivo.'" />'."\n"."</div>";
-                                        }
-                                }
-                                    $diravatar->close();
-                                    
+       //                         $i=0;
+      //                      while (($archivo = $diravatar->read()) !== false)
+       //                         {
+       //                             
+       //                                 if (eregi("jpg", $archivo) || eregi("png", $archivo)){
+        //                                    echo '<div id=centrado style="width:111px; border: purple solid"><img src="'.$directoryavatar."/".$archivo.'"width="100px" height="100px"><br/><input type=radio name=imgavatar value="'.$archivo.'" />'."\n"."</div>";
+        //                                }
+        //                        }
+         //                           $diravatar->close();
+        //                            
                             
-                        ?>
+                        ?> 
                     </div>
                     <div>
                         <input type="submit" name="modavasend" value="Aplicar" />

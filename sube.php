@@ -11,15 +11,19 @@ if ($conexion->connect_errno) {
 //             
 if ($_POST) {
 
-    $coachId = '2'; //quitar por que lo coje de las variables de sesion
+    $coachId = '100'; //quitar por que lo coje de las variables de sesion
 
     $cAvatar = $_POST['imgavatar'];
-    $querry = "UPDATE `coaches` SET `cAvatar` =? WHERE `coachId` = ?";
-    //                     
+    echo $cAvatar;
+    echo $coachId;
+    $querry = "UPDATE `coaches` SET `cAvatar` = '?' WHERE `coachId` = '?' ";
+    echo $querry;
+    //     
+        $stmt->bind_param("ss", $cAvatar, $coachId);
     $stmt = $conexion->prepare($querry);
-    $stmt->bind_param("ss", $cAvatar, $coachId);
+
     if ($stmt->execute()) {
-        echo "Registro actualizado" . $cAvatar . "este";
+        echo "Registro actualizado" . $cAvatar . "Puede";
     } else {
         echo 'Error al actualizar.';
     }
