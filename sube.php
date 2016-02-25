@@ -3,7 +3,7 @@
 #################################################################
 #
 ###Externalizar
-$conexion = new mysqli("localhost", "root", "12345678", "melol");
+$conexion = new mysqli("localhost", "root", "ausias", "melol");
 if ($conexion->connect_errno) {
     die("Fallo al contenctar a MySQL: (" . $conexion->connect_errno . ") " . $conexion->connect_error);
 }
